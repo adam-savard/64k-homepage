@@ -13,7 +13,7 @@ const getPage = async function(url){
 
     if(getQueryStringValue("creatorKey")){
         var param = getQueryStringValue("creatorKey");
-        alert("Your creator key is " + param + "; write that down!");
+        alert("Your creator key is |     " + param + "     |; write that down!");
     }
     </script>
     `

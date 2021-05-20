@@ -8,6 +8,7 @@ app.use(express.urlencoded({
 }));
 const createNewDoc = require('./htmlProcessing').createNewDoc;
 const getPage = require('./getPage').getPage;
+const updateAndDelete = require('./updateAndDelete');
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/html/index.html'));
@@ -17,9 +18,36 @@ app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/about.html'));
 })
 
+app.get('/api', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/html/api.html'));
+})
+
 app.get('/submit', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/submit.html'));
 })
+
+app.get('/modify', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/html/modify.html'));
+})
+
+app.put('/update', async (req, res) => {
+  let response = await updateAndDelete.update({
+    creatorKey : req.body.creatorKey,
+    html : req.body.html
+  });
+
+  res.send(response);
+})
+
+app.delete('/delete', async (req, res) => {
+  let response = await updateAndDelete.deleteDoc({
+    creatorKey : req.body.creatorKey
+  });
+
+  res.send(response);
+})
+
+
 
 app.post('/newDoc', async (req, res) => {
     let newURL = await createNewDoc(req.body.data);

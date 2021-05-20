@@ -1,7 +1,12 @@
 <!doctype html>
 
 <html lang="en">
-
+<style>
+  body {
+    background-color: grey;
+    color: white;
+  }
+</style>
 <head>
   <meta charset="utf-8">
 
@@ -14,26 +19,26 @@
   //hey, you opened up the debug menu. Nice!
   //Nothing super secretive here, just setting up a request for the API to process
   const submitNewFile = function () {
-    let fileInput = document.getElementById('newDoc');
+    var fileInput = document.getElementById('newDoc');
 
-    let file = fileInput.files[0]; //we only need the first file; anything else is ignored
+    var file = fileInput.files[0]; //we only need the first file; anything else is ignored
 
     if (!file) return alert("No file selected!");
 
     if (file.type != "text/html") {
-      console.log(file.type);
+      
       alert("You need to select a valid html file!" + ` File type is ${file.type}`);
       //data processing is done on the server, so while this is easily bypassed no invalid files here :)
       return;
     }
 
     if (file) {
-      let reader = new FileReader();
+      var reader = new FileReader();
       reader.readAsText(file, "UTF-8");
       reader.onload = function (evt) {
-        let contents = evt.target.result;
+        var contents = evt.target.result;
         console.log(contents);
-        let xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "/newDoc", true);
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify({
@@ -42,7 +47,7 @@
 
         xhttp.onreadystatechange = function () {
           if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            console.log(this.responseText);
+            
             window.location.href = this.responseText;
           }
         }

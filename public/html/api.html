@@ -1,0 +1,132 @@
+<!doctype html>
+
+<html lang="en">
+<style>
+    body {
+        background-color: grey;
+        color: white;
+    }
+    table {
+    margin: 0 auto; /* or margin: 0 auto 0 auto */
+  }
+</style>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The 4k-homepage Project | Using the API</title>
+    <meta name="description" content="The 4k-homepage Project">
+    <meta name="author" content="Adam Savard">
+</head>
+
+<body style="text-align: center;">
+    <h1>
+        About the 4k Homepage Project API
+    </h1>
+    <br>
+    <div>
+        You don't have to navigate to this website in order to get data from the 4k-homepage Project.<br> You can make
+        use of the API and call<br>
+        it using tools like Postman, curl, etc.<br><br>
+        Below are the routes that you can call and the format they are in.
+        <br><br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Route URL</th>
+                    <th>Example</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/page:pageID</td>
+                    <td>/page:qRWU5eh_aYxkVeV8f6H80</td>
+                    <td>This route retrieves the page with the specified ID and returns the text. <br>This can be piped
+                        into a command to save directly to a file.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Route URL</th>
+                    <th>Example</th>
+                    <th>Body Format</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PUT</td>
+                    <td>/update</td>
+                    <td>/update</td>
+                    <td>{<br>"creatorKey" : "qRWU5eh_aYxkVeV8f6H80",<br>" html" : "&lt;div&gt; Hello
+                        World!&lt;/div&gt;"<br>}</td>
+                    <td>Using the information in the body, the HTML document with<br>the specified key is updated using
+                        the data in "html"</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Route URL</th>
+                <th>Example</th>
+                <th>Body Format</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DELETE</td>
+                <td>/delete</td>
+                <td>/delete</td>
+                <td>{<br>"creatorKey" : "qRWU5eh_aYxkVeV8f6H80"<br>}</td>
+                <td>Deletes the creator key specified in the body. To prevent fishing for keys,<br>no information is returned other than the request being submitted.</td>
+              </tr>
+            </tbody>
+            </table>
+            <br><br>
+            <table border="1">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Route URL</th>
+                    <th>Example</th>
+                    <th>Body Format</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>POST</td>
+                    <td>/newDoc</td>
+                    <td>/newDoc</td>
+                    <td>{<br>"data" : "&lt;div&gt; Hello
+                        World!&lt;/div&gt;"<br>}</td>
+                    <td>This will post a new document and return the URL plus the creator key as part of the query string.</td>
+                  </tr>
+                </tbody>
+                </table>
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <br><br>
+    <hr>
+</body>
+
+</html>

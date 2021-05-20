@@ -21,7 +21,7 @@ const createNewDoc = async function(html){
         url: url,
         creatorKey : creatorKey
     });
-    const pageSize = Buffer.byteLength(html, 'utf8');
+    const pageSize = Buffer.byteLength(stripped, 'utf8');
     if(pageSize > 4096) return  `${TLD}/page:rejected`;
     await newDoc.save().then(() =>{
         console.log(`Saved new doc ${url} with creatorKey ${creatorKey}`);

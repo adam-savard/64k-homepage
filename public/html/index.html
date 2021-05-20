@@ -3,10 +3,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <style>
+    body {
+      background-color: grey;
+      color: white;
+    }
+  </style>
   <title>The 4k-homepage Project</title>
   <meta name="description" content="The 4k-homepage Project">
   <meta name="author" content="Adam Savard">
+  <script>
+    function go(){
+      window.location.href = window.location.href + 'page:' + document.getElementById('page-id').value
+    }
+  </script>
 </head>
 
 <body style="text-align: center;">
@@ -22,16 +32,16 @@
 
   <nav>
     <a href="/about">About</a> |
-    <a href="/submit/">Submit a Page</a> 
-    <!-- <a href="/js/">JavaScript</a> | -->
-    <!-- <a href="/python/">Python</a> -->
+    <a href="/submit/">Submit a Page</a> |
+    <a href="/modify/">Modify a Page</a> |
+    <a href="/api/">API</a>
   </nav>
 
   <br><br><hr>
   <form>
     <label for="page-id">Page ID:</label><br>
     <input type="text" id="page-id" name="page-id" value="A Wonderful Page Name"><br><br>
-    <input type="submit" value="Go!">
+    <input type="button" value="Go!" onclick="go()">
   </form> 
 </body>
 </html>
