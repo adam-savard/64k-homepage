@@ -28,6 +28,10 @@ app.post('/newDoc', async (req, res) => {
 
 app.get('/page:pageID', async (req, res) => {
     let text = await getPage(req.params.pageID);
+    if(text.includes('rejected')){
+      res.sendFile(path.join(__dirname, 'public/html/rejected.html'));
+      return;
+    }
     res.send(text);
 })
 
