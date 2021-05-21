@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost:27017/4k');
+mongoose.connect('mongodb://localhost:27017/28k');
 const htmlDocSchema = new Schema({
     html : String,
     creatorKey : String, //used for modify/delete

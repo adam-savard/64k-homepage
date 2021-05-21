@@ -1,5 +1,5 @@
 {
-  "name": "4k-homepage",
+  "name": "28k-homepage",
   "version": "1.0.0",
   "description": "Serves up small webpages",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adam-savard/4k-homepage.git"
+    "url": "git+https://github.com/adam-savard/28k-homepage.git"
   },
   "author": "Adam Savard",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/adam-savard/4k-homepage/issues"
+    "url": "https://github.com/adam-savard/28k-homepage/issues"
   },
-  "homepage": "https://github.com/adam-savard/4k-homepage#readme",
+  "homepage": "https://github.com/adam-savard/28k-homepage#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",

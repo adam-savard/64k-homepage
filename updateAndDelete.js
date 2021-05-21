@@ -1,10 +1,10 @@
 const htmlDoc = require('./schemas').htmlDoc;
-
+const processHTMLString = require('./htmlProcessing').processHTMLString;
 const update = async function(docProps){
 
     let stripped = processHTMLString(docProps.html);
     const pageSize = Buffer.byteLength(stripped, 'utf8');
-    if(pageSize > 4096) return  `Your page is too large (${pageSize} bytes). Try again.`;
+    if(pageSize > 28800) return  `Your page is too large (${pageSize} bytes). Try again.`;
 
     await htmlDoc.findOneAndUpdate({
         creatorKey : docProps.creatorKey

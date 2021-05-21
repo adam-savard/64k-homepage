@@ -13,7 +13,7 @@ const processHTMLString = function(html){
 
 const createNewDoc = async function(html){
     let stripped = processHTMLString(html);
-    let url = Date.now();
+    let url = nanoid();
     let creatorKey = nanoid();
 
     const newDoc = new htmlDoc({
@@ -22,7 +22,7 @@ const createNewDoc = async function(html){
         creatorKey : creatorKey
     });
     const pageSize = Buffer.byteLength(stripped, 'utf8');
-    if(pageSize > 4096) return  `${TLD}/page:rejected`;
+    if(pageSize > 28800) return  `${TLD}/page:rejected`;
     await newDoc.save().then(() =>{
         console.log(`Saved new doc ${url} with creatorKey ${creatorKey}`);
     });
@@ -30,5 +30,6 @@ const createNewDoc = async function(html){
 }
 
 module.exports = {
-    createNewDoc
+    createNewDoc,
+    processHTMLString
 }
